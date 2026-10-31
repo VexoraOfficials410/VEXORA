@@ -21,8 +21,6 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* NAVIGATION */
-
 nav {
   display: flex;
   justify-content: space-between;
@@ -52,18 +50,15 @@ nav a {
 
 nav a:hover { color: #00d9ff; }
 
-/* HERO */
-
 .hero {
-  min-height: 480px;
+  min-height: 450px;
   padding: 90px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background:
-    radial-gradient(ellipse at center, #123b57, #070b12 70%);
+  background: radial-gradient(ellipse, #123b57, #070b12 70%);
 }
 
 .hero small {
@@ -94,7 +89,7 @@ nav a:hover { color: #00d9ff; }
   display: inline-block;
   background: #00d9ff;
   color: #06111b;
-  padding: 14px 30px;
+  padding: 13px 25px;
   text-decoration: none;
   font-weight: bold;
   border-radius: 5px;
@@ -106,11 +101,7 @@ nav a:hover { color: #00d9ff; }
   box-shadow: 0 0 25px #00d9ff;
 }
 
-/* GENERAL SECTIONS */
-
-section {
-  padding: 65px 7%;
-}
+section { padding: 65px 7%; }
 
 .section-title {
   text-align: center;
@@ -125,8 +116,6 @@ section {
   color: #8da5b8;
   margin-bottom: 35px;
 }
-
-/* SEARCH */
 
 .search-box {
   max-width: 550px;
@@ -143,13 +132,6 @@ section {
   outline: none;
   font-size: 15px;
 }
-
-.search-box input:focus {
-  border-color: #00d9ff;
-  box-shadow: 0 0 12px #00d9ff44;
-}
-
-/* FILTER BUTTONS */
 
 .filters {
   display: flex;
@@ -172,10 +154,7 @@ section {
 .filter:hover {
   background: #00d9ff;
   color: #06111b;
-  border-color: #00d9ff;
 }
-
-/* GAME CARDS */
 
 .games {
   display: grid;
@@ -198,12 +177,21 @@ section {
 }
 
 .game-art {
-  height: 130px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 54px;
+  height: 165px;
+  overflow: hidden;
   background: linear-gradient(135deg, #102b43, #07101d);
+}
+
+.game-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: .4s;
+}
+
+.game-card:hover .game-art img {
+  transform: scale(1.08);
 }
 
 .game-info { padding: 18px; }
@@ -217,16 +205,34 @@ section {
   color: #9aafc1;
   font-size: 13px;
   line-height: 1.5;
+  min-height: 40px;
 }
 
 .game-tag {
   display: inline-block;
-  margin-top: 14px;
+  margin: 12px 0;
   font-size: 11px;
   color: #00d9ff;
   border: 1px solid #174b64;
   padding: 5px 10px;
   border-radius: 20px;
+}
+
+.download {
+  display: block;
+  text-align: center;
+  background: #00d9ff;
+  color: #06111b;
+  padding: 11px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.download:hover {
+  background: #fff;
 }
 
 .no-games {
@@ -236,11 +242,7 @@ section {
   display: none;
 }
 
-/* TRENDING */
-
-.trending {
-  background: #0c1420;
-}
+.trending { background: #0c1420; }
 
 .trend-list {
   display: grid;
@@ -263,16 +265,12 @@ section {
   transform: scale(1.04);
 }
 
-.trend-item span {
-  font-size: 32px;
-}
+.trend-item span { font-size: 32px; }
 
 .trend-item h3 {
   margin-top: 10px;
   font-size: 15px;
 }
-
-/* ABOUT */
 
 .about {
   text-align: center;
@@ -285,8 +283,6 @@ section {
   color: #a5b7c8;
   line-height: 1.8;
 }
-
-/* FOOTER */
 
 footer {
   text-align: center;
@@ -310,8 +306,6 @@ footer span { color: #00d9ff; }
 
 <body>
 
-<!-- NAVIGATION -->
-
 <nav>
   <div class="logo">VEXORA</div>
   <div>
@@ -321,8 +315,6 @@ footer span { color: #00d9ff; }
   </div>
 </nav>
 
-<!-- HERO -->
-
 <div class="hero" id="home">
   <small>WELCOME TO THE GAMING UNIVERSE</small>
   <h1>VEXORA</h1>
@@ -330,24 +322,14 @@ footer span { color: #00d9ff; }
   <a href="#games" class="btn">EXPLORE GAMES</a>
 </div>
 
-<!-- GAMES LIBRARY -->
-
 <section id="games">
 
-  <h2 class="section-title">
-    EXPLORE <span>GAMES</span>
-  </h2>
-
-  <p class="subtitle">
-    Discover your next gaming adventure.
-  </p>
+  <h2 class="section-title">EXPLORE <span>GAMES</span></h2>
+  <p class="subtitle">Discover your next gaming adventure.</p>
 
   <div class="search-box">
-    <input
-      type="text"
-      id="search"
-      placeholder="Search your favourite game..."
-    >
+    <input type="text" id="search"
+      placeholder="Search your favourite game...">
   </div>
 
   <div class="filters">
@@ -362,83 +344,110 @@ footer span { color: #00d9ff; }
   <div class="games" id="gamesList">
 
     <div class="game-card" data-category="Battle Royale">
-      <div class="game-art">🔥</div>
+      <div class="game-art">
+        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600" alt="Free Fire MAX">
+      </div>
       <div class="game-info">
         <h3>Free Fire MAX</h3>
         <p>Fast-paced battle royale action.</p>
         <span class="game-tag">Battle Royale</span>
+        <a class="download" href="https://play.google.com/store/search?q=Free%20Fire%20MAX&c=apps" target="_blank">DOWNLOAD / VIEW</a>
       </div>
     </div>
 
     <div class="game-card" data-category="Battle Royale">
-      <div class="game-art">🎯</div>
+      <div class="game-art">
+        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600" alt="BGMI">
+      </div>
       <div class="game-info">
         <h3>BGMI</h3>
         <p>Survive and become the champion.</p>
         <span class="game-tag">Battle Royale</span>
+        <a class="download" href="https://play.google.com/store/apps/details?id=com.pubg.imobile" target="_blank">DOWNLOAD / VIEW</a>
       </div>
     </div>
 
     <div class="game-card" data-category="Adventure">
-      <div class="game-art">⛏️</div>
+      <div class="game-art">
+        <img src="https://images.unsplash.com/photo-1603481546238-487240415921?w=600" alt="Minecraft">
+      </div>
       <div class="game-info">
         <h3>Minecraft</h3>
         <p>Build, explore and create your world.</p>
         <span class="game-tag">Adventure</span>
+        <a class="download" href="https://www.minecraft.net/" target="_blank">OFFICIAL WEBSITE</a>
       </div>
     </div>
 
     <div class="game-card" data-category="Open World">
-      <div class="game-art">🚗</div>
+      <div class="game-art">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg" alt="GTA V">
+      </div>
       <div class="game-info">
         <h3>GTA V</h3>
         <p>Explore an enormous open world.</p>
         <span class="game-tag">Open World</span>
+        <a class="download" href="https://www.rockstargames.com/gta-v" target="_blank">OFFICIAL WEBSITE</a>
       </div>
     </div>
 
     <div class="game-card" data-category="Shooting">
-      <div class="game-art">⚡</div>
+      <div class="game-art">
+        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&sat=-30" alt="Valorant">
+      </div>
       <div class="game-info">
         <h3>Valorant</h3>
         <p>Competitive tactical shooting.</p>
         <span class="game-tag">Shooting</span>
+        <a class="download" href="https://playvalorant.com/" target="_blank">OFFICIAL WEBSITE</a>
       </div>
     </div>
 
     <div class="game-card" data-category="Shooting">
-      <div class="game-art">💥</div>
+      <div class="game-art">
+        <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=600" alt="Call of Duty">
+      </div>
       <div class="game-info">
         <h3>Call of Duty</h3>
         <p>Action-packed shooting experience.</p>
         <span class="game-tag">Shooting</span>
+        <a class="download" href="https://www.callofduty.com/" target="_blank">OFFICIAL WEBSITE</a>
       </div>
     </div>
 
     <div class="game-card" data-category="Adventure">
-      <div class="game-art">🌍</div>
+      <div class="game-art">
+        <img src="https://images.unsplash.com/photo-1580327344181-c1163234e5a0?w=600" alt="Roblox">
+      </div>
       <div class="game-info">
         <h3>Roblox</h3>
-        <p>Discover millions of player-created worlds.</p>
+        <p>Discover player-created worlds.</p>
         <span class="game-tag">Adventure</span>
+        <a class="download" href="https://www.roblox.com/" target="_blank">PLAY / VIEW</a>
       </div>
     </div>
 
     <div class="game-card" data-category="Sports">
-      <div class="game-art">⚽</div>
+      <div class="game-art">
+        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600" alt="EA SPORTS FC">
+      </div>
       <div class="game-info">
         <h3>EA SPORTS FC</h3>
         <p>Experience the world of football.</p>
         <span class="game-tag">Sports</span>
+        <a class="download" href="https://www.ea.com/games/ea-sports-fc" target="_blank">OFFICIAL WEBSITE</a>
       </div>
     </div>
 
     <div class="game-card" data-category="Open World">
-      <div class="game-art">🏎️</div>
+      <div class="game-art">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/header.jpg" alt="Forza Horizon">
+      </div>
       <div class="game-info">
         <h3>Forza Horizon</h3>
-        <p>Explore a world of exciting racing.</p>
+        <p>Explore an exciting racing world.</p>
         <span class="game-tag">Open World</span>
+        <a class="download" href="https://store.steampowered.com/app/1551360/" target="_blank">VIEW ON STEAM</a>
       </div>
     </div>
 
@@ -447,74 +456,37 @@ footer span { color: #00d9ff; }
   <div class="no-games" id="noGames">
     No games found. Try another search!
   </div>
-
 </section>
 
-<!-- TRENDING -->
-
 <section class="trending">
-
-  <h2 class="section-title">
-    TRENDING <span>GAMES</span>
-  </h2>
-
+  <h2 class="section-title">TRENDING <span>GAMES</span></h2>
   <p class="subtitle">Popular titles in our gaming library.</p>
 
   <div class="trend-list">
-    <div class="trend-item">
-      <span>🔥</span>
-      <h3>Free Fire MAX</h3>
-    </div>
-
-    <div class="trend-item">
-      <span>🎯</span>
-      <h3>BGMI</h3>
-    </div>
-
-    <div class="trend-item">
-      <span>⛏️</span>
-      <h3>Minecraft</h3>
-    </div>
-
-    <div class="trend-item">
-      <span>🚗</span>
-      <h3>GTA V</h3>
-    </div>
+    <div class="trend-item"><span>🔥</span><h3>Free Fire MAX</h3></div>
+    <div class="trend-item"><span>🎯</span><h3>BGMI</h3></div>
+    <div class="trend-item"><span>⛏️</span><h3>Minecraft</h3></div>
+    <div class="trend-item"><span>🚗</span><h3>GTA V</h3></div>
   </div>
-
 </section>
-
-<!-- ABOUT -->
 
 <section class="about" id="about">
-
-  <h2 class="section-title">
-    ABOUT <span>VEXORA</span>
-  </h2>
-
+  <h2 class="section-title">ABOUT <span>VEXORA</span></h2>
   <p>
-    VEXORA is an all-games gaming platform concept
-    created for gamers around the world.
-
+    VEXORA is an all-games gaming platform created
+    for gamers around the world.
     Explore different games, discover new adventures
     and enjoy the ultimate gaming universe.
-
     Your game. Your world. Your VEXORA.
   </p>
-
 </section>
-
-<!-- FOOTER -->
 
 <footer>
   © 2026 <span>VEXORA</span>
   <p style="margin-top:10px">ALL RIGHTS RESERVED</p>
 </footer>
 
-<!-- JAVASCRIPT -->
-
 <script>
-
 const search = document.getElementById("search");
 const cards = document.querySelectorAll(".game-card");
 const filters = document.querySelectorAll(".filter");
@@ -523,15 +495,11 @@ const noGames = document.getElementById("noGames");
 let selectedCategory = "All";
 
 function updateGames() {
-
   const query = search.value.toLowerCase();
   let visibleCount = 0;
 
   cards.forEach(card => {
-
-    const name = card.querySelector("h3")
-      .textContent.toLowerCase();
-
+    const name = card.querySelector("h3").textContent.toLowerCase();
     const category = card.dataset.category;
 
     const matchesSearch = name.includes(query);
@@ -540,11 +508,9 @@ function updateGames() {
       category === selectedCategory;
 
     const show = matchesSearch && matchesCategory;
-
     card.style.display = show ? "block" : "none";
 
     if (show) visibleCount++;
-
   });
 
   noGames.style.display =
@@ -554,23 +520,13 @@ function updateGames() {
 search.addEventListener("input", updateGames);
 
 filters.forEach(button => {
-
   button.addEventListener("click", () => {
-
-    filters.forEach(btn =>
-      btn.classList.remove("active")
-    );
-
+    filters.forEach(btn => btn.classList.remove("active"));
     button.classList.add("active");
-
     selectedCategory = button.dataset.category;
-
     updateGames();
-
   });
-
 });
-
 </script>
 
 </body>
